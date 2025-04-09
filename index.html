@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditi Wellness - Hospital App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a56db;
+            --primary-light: #3f83f8;
+            --secondary: #1e429f;
+            --accent: #3bd4ae;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-white/10 rounded-full">
+                    <i class="fas fa-heartbeat text-2xl text-[var(--accent)]"></i>
+                </div>
+                <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-[var(--accent)]">
+                    Aditi Wellness
+                </h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link text-white hover:text-[var(--accent)] transition">Home</a></li>
+                    <li><a href="#services" class="nav-link text-white hover:text-[var(--accent)] transition">Services</a></li>
+                    <li><a href="#doctors" class="nav-link text-white hover:text-[var(--accent)] transition">Doctors</a></li>
+                    <li><a href="#about" class="nav-link text-white hover:text-[var(--accent)] transition">About</a></li>
+                    <li><a href="#contact" class="nav-link text-white hover:text-[var(--accent)] transition">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-xl bg-white/10 p-2 rounded-lg hover:bg-white/20 transition">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-[var(--primary)]/20 to-[var(--secondary)]/20"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-[var(--accent)]">
+                    Your Health, Our Priority
+                </span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in delay-100">
+                Comprehensive healthcare services with cutting-edge technology and compassionate care.
+            </p>
+            <div class="animate-fade-in delay-200">
+                <a href="#appointment" class="inline-block bg-gradient-to-r from-[var(--accent)] to-[var(--primary-light)] text-white font-bold py-3 px-8 rounded-full hover:shadow-lg transition-all transform hover:scale-105">
+                    Book an Appointment <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Animated floating elements -->
+        <div class="absolute top-1/4 left-1/4 w-8 h-8 rounded-full bg-[var(--accent)]/30 animate-float"></div>
+        <div class="absolute top-1/3 right-1/4 w-12 h-12 rounded-full bg-white/10 animate-float delay-100"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-10 h-10 rounded-full bg-[var(--primary-light)]/20 animate-float delay-200"></div>
+        
+        <style>
+            @keyframes float {
+                0%, 100% { transform: translateY(0) translateX(0); }
+                50% { transform: translateY(-20px) translateX(10px); }
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+        </style>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 animate-fade-in">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">
+                    Our Services
+                </span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="card-hover bg-white/80 backdrop-blur-sm border border-white/20 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[var(--accent)] to-[var(--primary-light)] text-white rounded-xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Cardiology</h3>
+                    <p class="text-gray-600">Comprehensive heart care with advanced diagnostic tools and treatment options.</p>
+                    <a href="#appointment" class="mt-4 inline-flex items-center text-[var(--primary)] hover:text-[var(--secondary)] transition">
+                        Learn more <i class="fas fa-chevron-right ml-1 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="card-hover bg-white/80 backdrop-blur-sm border border-white/20 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[var(--accent)] to-[var(--primary-light)] text-white rounded-xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Orthopedics</h3>
+                    <p class="text-gray-600">Specialized care for bones, joints, and musculoskeletal conditions.</p>
+                    <a href="#appointment" class="mt-4 inline-flex items-center text-[var(--primary)] hover:text-[var(--secondary)] transition">
+                        Learn more <i class="fas fa-chevron-right ml-1 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="card-hover bg-white/80 backdrop-blur-sm border border-white/20 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[var(--accent)] to-[var(--primary-light)] text-white rounded-xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Neurology</h3>
+                    <p class="text-gray-600">Expert diagnosis and treatment for nervous system disorders.</p>
+                    <a href="#appointment" class="mt-4 inline-flex items-center text-[var(--primary)] hover:text-[var(--secondary)] transition">
+                        Learn more <i class="fas fa-chevron-right ml-1 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 animate-fade-in">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">
+                    Our Specialists
+                </span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Doctor 1 -->
+                <div class="card-hover group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Priya Sharma" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex space-x-2">
+                                <span class="bg-[var(--accent)] text-white text-xs px-3 py-1 rounded-full">Cardiology</span>
+                                <span class="bg-white/90 text-gray-800 text-xs px-3 py-1 rounded-full">15+ Years</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Dr. Priya Sharma</h3>
+                        <p class="text-[var(--primary)] mb-3">Senior Cardiologist</p>
+                        <p class="text-gray-600 mb-4">MD, DM Cardiology with expertise in interventional procedures.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-[var(--primary)] transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-[var(--primary)] transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#appointment" class="ml-auto text-sm font-medium text-[var(--primary)] hover:text-[var(--secondary)] flex items-center">
+                                Book <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Doctor 2 -->
+                <div class="card-hover group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Rajesh Patel" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex space-x-2">
+                                <span class="bg-[var(--accent)] text-white text-xs px-3 py-1 rounded-full">Orthopedics</span>
+                                <span class="bg-white/90 text-gray-800 text-xs px-3 py-1 rounded-full">12+ Years</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Dr. Rajesh Patel</h3>
+                        <p class="text-[var(--primary)] mb-3">Orthopedic Surgeon</p>
+                        <p class="text-gray-600 mb-4">MS Orthopedics specializing in joint replacement surgeries.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-[var(--primary)] transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-[var(--primary)] transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#appointment" class="ml-auto text-sm font-medium text-[var(--primary)] hover:text-[var(--secondary)] flex items-center">
+                                Book <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Doctor 3 -->
+                <div class="card-hover group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Anjali Desai" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex space-x-2">
+                                <span class="bg-[var(--accent)] text-white text-xs px-3 py-1 rounded-full">Neurology</span>
+                                <span class="bg-white/90 text-gray-800 text-xs px-3 py-1 rounded-full">10+ Years</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Dr. Anjali Desai</h3>
+                        <p class="text-[var(--primary)] mb-3">Neurology Specialist</p>
+                        <p class="text-gray-600 mb-4">DM Neurology with focus on stroke and movement disorders.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-[var(--primary)] transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-[var(--primary)] transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#appointment" class="ml-auto text-sm font-medium text-[var(--primary)] hover:text-[var(--secondary)] flex items-center">
+                                Book <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">About Aditi Wellness</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Our Story</h3>
+                    <p class="text-gray-600 mb-4">Founded in 2010, Aditi Wellness has grown from a small clinic to a premier healthcare provider, serving over 50,000 patients annually with compassion and excellence.</p>
+                    <p class="text-gray-600 mb-6">Our mission is to provide accessible, high-quality healthcare through innovative treatments and personalized care plans.</p>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Why Choose Us</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-check text-blue-600 mt-1"></i>
+                            <span>Board-certified specialists with 10+ years experience</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-check text-blue-600 mt-1"></i>
+                            <span>State-of-the-art diagnostic and treatment facilities</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-check text-blue-600 mt-1"></i>
+                            <span>Patient-centered approach to care</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-check text-blue-600 mt-1"></i>
+                            <span>Affordable pricing and insurance acceptance</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative h-96 rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118" alt="Our Hospital" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-blue-800 bg-opacity-30 flex items-center justify-center">
+                        <div class="text-center p-6 bg-white bg-opacity-90 rounded-lg max-w-xs">
+                            <i class="fas fa-heart text-4xl text-blue-600 mb-3"></i>
+                            <h4 class="text-xl font-semibold mb-2">Compassionate Care</h4>
+                            <p class="text-gray-600">Your health is our top priority</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="py-16 bg-blue-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6">Book an Appointment</h2>
+                <p class="mb-8">Schedule your visit with our specialists for personalized care.</p>
+                <form id="appointmentForm" class="grid md:grid-cols-2 gap-6">
+                    <input type="text" name="name" placeholder="Full Name" required class="p-3 rounded bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="email" name="email" placeholder="Email" required class="p-3 rounded bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="tel" name="phone" placeholder="Phone" required class="p-3 rounded bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <select name="department" required class="p-3 rounded bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <option value="">Select Department</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="orthopedics">Orthopedics</option>
+                        <option value="neurology">Neurology</option>
+                    </select>
+                    <input type="date" name="date" required class="p-3 rounded bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 md:col-span-2">
+                    <div id="formStatus" class="hidden md:col-span-2"></div>
+                    <button type="submit" class="bg-white text-blue-800 font-bold py-3 px-6 rounded hover:bg-gray-100 transition md:col-span-2">
+                        Book Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Aditi Wellness</h3>
+                    <p class="text-gray-400">Providing exceptional healthcare services with compassion and expertise.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#doctors" class="text-gray-400 hover:text-white transition">Doctors</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Wellness Street, Health City</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9876543210</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@aditiwellness.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Opening Hours</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Monday - Friday: 8:00 AM - 8:00 PM</li>
+                        <li>Saturday: 9:00 AM - 5:00 PM</li>
+                        <li>Sunday: Emergency Only</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Aditi Wellness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
